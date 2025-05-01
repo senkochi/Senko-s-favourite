@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+
+:root{
+    --dark-gray:#969696;
+    --content-font: "Poppins", sans-serif;
+    --light-gray:#A9A9A9;
+}
+
+.footer p{
+    color: var(--dark-gray);
+    font-family: var(--content-font);
+}
+
+.footer h1{
+    color: var(--dark-gray);
+    font-family: var(--content-font);
+    font-size: var(--text-xl);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer li{
+  margin-bottom: 3px;
+}
+
+.footer li:hover{
+  color: var(--light-gray);
+}
+
+.divider{
+  border: 0.5px solid var(--light-gray);
+}
+
+
+@layer utilities {
+    .font-title {
+      font-family: var(--title-font);
+    }
+  
+    .font-content {
+      font-family: var(--content-font);
+    }
+  }
+  
