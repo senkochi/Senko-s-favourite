@@ -4,6 +4,7 @@
 
 :root{
     --dark-gray:#969696;
+    --heading-font: "Montserrat";
     --content-font: "Poppins", sans-serif;
     --light-gray:#A9A9A9;
 }
@@ -35,8 +36,8 @@
 
 
 @layer utilities {
-    .font-title {
-      font-family: var(--title-font);
+    .font-heading {
+      font-family: var(--heading-font);
     }
   
     .font-content {
