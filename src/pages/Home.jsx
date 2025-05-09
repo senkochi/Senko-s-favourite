@@ -5,7 +5,7 @@ import TopCategory from '../components/TopCategory'
 
 const Home = () => {
   return (
-    <div>
+    <div className='page-container'>
         <HeroBanner />
         <Intro />
         <TopCategory />

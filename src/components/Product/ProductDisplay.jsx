@@ -1,8 +1,17 @@
 import React from 'react'
-import data from '../../assets/data/productData.json'
+import { useEffect, useState } from 'react';
 import ProductFilter from './ProductFilter'
-
+import { Link } from 'react-router-dom';
+ 
 const ProductDisplay = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('/productData.json')
+          .then(response => response.json())
+          .then(data => setProducts(data))
+          .catch(error => console.error('Lỗi khi fetch JSON:', error));
+      }, []);
   return (
     <div className='flex md:flex-row flex-col'>
         <div className='px-20'>
@@ -14,15 +23,15 @@ const ProductDisplay = () => {
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             
-            {data.map( product =>(
+            {products.map( product =>(
             <div class="bg-white flex flex-col rounded overflow-hidden shadow-md hover:scale-[1.01] transition-all relative">
-            <a href="javascript:void(0)" class="block">
+            <Link to={`/products/${product.slug}`}>
                 <div class="w-full">
                 <img src={product.image} alt={product.name}
                     class="w-full aspect-[18/24] object-cover object-top" />
                 </div>
                 <div class="p-4">
-                <h5 class="text-sm sm:text-base font-semibold text-slate-900 line-clamp-2">{product.name}</h5>
+                <h5 class="text-sm sm:text-base font-semibold text-slate-900 line-clamp-2 min-h-[3rem]">{product.name}</h5>
                 <div class="mt-2 flex items-center flex-wrap gap-2">
                     <h6 class="text-sm sm:text-base font-semibold text-slate-900">&#36;{product.price}</h6>
                     <div class="bg-slate-100 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer ml-auto" title="Wishlist">
@@ -35,7 +44,7 @@ const ProductDisplay = () => {
                     </div>
                 </div>
                 </div>
-            </a>
+            </Link>
             <div class="min-h-[50px] p-4 !pt-0">
                 <button type="button" class="absolute left-0 right-0 bottom-3 max-w-[88%] mx-auto text-sm px-2 py-2 font-medium w-full bg-amber-300 hover:bg-amber-200 text-white tracking-wide outline-none border-none rounded">Add to cart</button>
             </div>
