@@ -9,7 +9,7 @@ const TopCategory = () => {
         <div className='text-center mt-20 mb-15'>
             <h1 className='text-3xl'>Top Categories</h1>
         </div>
-        <div className='flex justify-between mx-15 font-content'>
+        <div className='flex flex-col md:flex-row justify-between mx-15 font-content'>
             <div className='flex flex-col gap-10 items-center p-6'>
                 <img src={manga_pic} alt="manga" className='w-80 rounded-full shadow-lg'/>
                 <p className='font-bold text-2xl'>
